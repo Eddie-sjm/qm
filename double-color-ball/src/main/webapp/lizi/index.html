@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="../static/js/echarts/echarts.min.js"></script>
+        <script src="../static/js/jquery/jquery.min.js"></script>
+        <script type="text/javascript">
+            //初始化echarts
+            var pieCharts = echarts.init(document.getElementById("pie"));
+            //设置属性
+            pieCharts.setOption({
+                title: {
+                    text: '学生成绩',
+                    subtext: '成绩比',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: []
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        mark: {show: true},
+                        dataView: {show: true, readOnly: false},
+                        magicType: {
+                            show: true,
+                            type: ['pie', 'funnel'],
+                            option: {
+                                funnel: {
+                                    x: '25%',
+                                    width: '50%',
+                                    funnelAlign: 'left',
+                                    max: 1548
+                                }
+                            }
+                        },
+                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                calculable: true,
+                series: [
+                    {
+                        name: '成绩',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['50%', '60%'],
+                        data: []
+                    }
+                ]
+            });
+            //显示一段动画
+            pieCharts.showLoading();
+            //异步请求数据
+            $.ajax({
+                type: "post",
+                async: true,
+                url: '${pageContext.request.contextPath}/getData',
+                data: [],
+                dataType: "json",
+                success: function (result) {
+                    pieCharts.hideLoading();//隐藏加载动画
+                    pieCharts.setOption({
+                        title: {
+                            text: '学生成绩',
+                            subtext: '成绩比',
+                            x: 'center'
+                        },
+                        tooltip: {
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            x: 'left',
+                            data: []
+                        },
+                        toolbox: {
+                            show: true,
+                            feature: {
+                                mark: {show: true},
+                                dataView: {show: true, readOnly: false},
+                                magicType: {
+                                    show: true,
+                                    type: ['pie', 'funnel'],
+                                    option: {
+                                        funnel: {
+                                            x: '25%',
+                                            width: '50%',
+                                            funnelAlign: 'left',
+                                            max: 1548
+                                        }
+                                    }
+                                },
+                                restore: {show: true},
+                                saveAsImage: {show: true}
+                            }
+                        },
+                        calculable: true,
+                        series: [
+                            {
+                                name: '成绩',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '60%'],
+                                data: result
+                            }
+                        ]
+                    });
+                }
+            })
+        </script>
+        <script>
+            $(function() {
+                var myCharts = echarts.init(document.getElementById("main"));
+                var option = {
+                    xAxis: {
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        data: [820, 932, 901, 934, 1290, 1330, 1320],
+                        type: 'line'
+                    }]
+                };
+                myCharts.setOption(option)
+            });
+
+            // $(function(){
+            //     //1,初始化echarts
+            //     var  myEcharts = echarts.init(document.getElementById("bar"));
+            //     //2,设置图形显示的数据选项
+            //     var  option = {
+            //         xAxis: {
+            //             type: 'category',
+            //             data: []
+            //         },
+            //         yAxis: {
+            //             type: 'value'
+            //         },
+            //         series: [{
+            //             data: [],
+            //             type: 'bar'
+            //         }]
+            //     };
+            //
+            //     $.get("/sys/echarts/bar",function(r){
+            //         //把真数据赋值给option
+            //         option.xAxis.data = r.xAxis;
+            //         option.series[0].data = r.seriesData;
+            //         //3,把option设置给echarts对象  显示柱状图
+            //         myEcharts.setOption(option);
+            //     });
+            // });
+        </script>
+    </head>
+    <body>
+    <style type="text/css">
+        #colorfulPulse {
+            width: 200px;
+            height: 80px;
+            margin:0 auto;
+        }
+        #colorfulPulse span {
+            display: inline-block;
+            width: 10px;
+            height: 40px;
+            animation-name: scale;
+            -webkit-animation-name: scale;
+            -moz-animation-name: scale;
+            -ms-animation-name: scale;
+            -o-animation-name: scale;
+            animation-duration: 1.2s;
+            -webkit-animation-duration: 1.2s;
+            -moz-animation-duration: 1.2s;
+            -ms-animation-duration: 1.2s;
+            -o-animation-duration: 1.2s;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+        }
+        span.item-1 {
+            background: #2ecc71;
+        }
+        span.item-2 {
+            background: #3498db;
+        }
+        span.item-3 {
+            background: #9b59b6;
+        }
+        span.item-4 {
+            background: #e67e22;
+        }
+        span.item-5 {
+            background: #c0392b;
+        }
+        span.item-6 {
+            background: #e74c3c;
+        }
+        span.item-7 {
+            background: #e74c8c;
+        }
+        .item-1 {
+            animation-delay: -1s;
+            -webkit-animation-delay: -1s;
+            -moz-animation-delay: -1s;
+            -ms-animation-delay: -1s;
+            -o-animation-delay: -1s;
+        }
+        .item-2 {
+            animation-delay: -0.9s;
+            -webkit-animation-delay: -0.9s;
+            -moz-animation-delay: -0.9s;
+            -ms-animation-delay: -0.9s;
+            -o-animation-delay: -0.9s;
+        }
+        .item-3 {
+            animation-delay: -0.8s;
+            -webkit-animation-delay: -0.8s;
+            -moz-animation-delay: -0.8s;
+            -ms-animation-delay: -0.8s;
+            -o-animation-delay: -0.8s;
+        }
+        .item-4 {
+            animation-delay: -0.7s;
+            -webkit-animation-delay: -0.7s;
+            -moz-animation-delay: -0.7s;
+            -ms-animation-delay: -0.7s;
+            -o-animation-delay: -0.7s;
+        }
+        .item-5 {
+            animation-delay: -0.6s;
+            -webkit-animation-delay: -0.6s;
+            -moz-animation-delay: -0.6s;
+            -ms-animation-delay: -0.6s;
+            -o-animation-delay: -0.6s;
+        }
+        .item-6 {
+            animation-delay: -0.5s;
+            -webkit-animation-delay: -0.5s;
+            -moz-animation-delay: -0.5s;
+            -ms-animation-delay: -0.5s;
+            -o-animation-delay: -0.5s;
+        }
+        .item-7 {
+            animation-delay: -0.4s;
+            -webkit-animation-delay: -0.4s;
+            -moz-animation-delay: -0.4s;
+            -ms-animation-delay: -0.4s;
+            -o-animation-delay: -0.4s;
+        }
+        @-webkit-keyframes scale {
+            0%, 40%, 100% {
+                -moz-transform: scaleY(0.2);
+                -ms-transform: scaleY(0.2);
+                -o-transform: scaleY(0.2);
+                -webkit-transform: scaleY(0.2);
+                transform: scaleY(0.2);
+            }
+
+            20%, 60% {
+                -moz-transform: scaleY(1);
+                -ms-transform: scaleY(1);
+                -o-transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+        @-moz-keyframes scale {
+            0%, 40%, 100% {
+                -moz-transform: scaleY(0.2);
+                -ms-transform: scaleY(0.2);
+                -o-transform: scaleY(0.2);
+                -webkit-transform: scaleY(0.2);
+                transform: scaleY(0.2);
+            }
+            20%, 60% {
+                -moz-transform: scaleY(1);
+                -ms-transform: scaleY(1);
+                -o-transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+        @-ms-keyframes scale {
+            0%, 40%, 100% {
+                -moz-transform: scaleY(0.2);
+                -ms-transform: scaleY(0.2);
+                -o-transform: scaleY(0.2);
+                -webkit-transform: scaleY(0.2);
+                transform: scaleY(0.2);
+            }
+            20%, 60% {
+                -moz-transform: scaleY(1);
+                -ms-transform: scaleY(1);
+                -o-transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+        @keyframes scale {
+            0%, 40%, 100% {
+                -moz-transform: scaleY(0.2);
+                -ms-transform: scaleY(0.2);
+                -o-transform: scaleY(0.2);
+                -webkit-transform: scaleY(0.2);
+                transform: scaleY(0.2);
+            }
+            20%, 60% {
+                -moz-transform: scaleY(1);
+                -ms-transform: scaleY(1);
+                -o-transform: scaleY(1);
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+    </style>
+    <div style="height:80px;"></div>
+
+    <!--colorful pulse-->
+    <div id="colorfulPulse">
+        <span class="item-1"></span>
+        <span class="item-2"></span>
+        <span class="item-3"></span>
+        <span class="item-4"></span>
+        <span class="item-5"></span>
+        <span class="item-6"></span>
+        <span class="item-7"></span>
+    </div>
+
+    <div>首页</div>
+
+        <a href="shouye.html">首页</a>
+        <div id="pie" style="width: 500px;height: 300px;">
+
+        </div>
+        <div id="main" style="width: 500px;height: 300px;">
+        </div>
+        <input id="flush" type="button" value="更新">
+
+        <div id="loading" style="width: 400px;height: 300px"></div>
+
+        <form action="/selectOnePool" method="post">
+<!--                <input id="addSelectOption" type="button" value="刷新日期"><br/>-->
+                <label>日期</label>
+                <select name="openingDate" id="openingDate" onchange="changeDistrict()">
+                    <option selected value="">请选择</option>
+                </select>
+            <input type="submit" value="查看">
+        </form>
+    </body>
+    <script type="text/javascript">
+        $(function () {
+            $('#flush').click(function(){
+                $.ajax({
+                    url: '/save', //发送后台的url
+                    type: 'get',
+                    // data: $('#test-form').serialize(), //序列化表单内容
+                    // dataType: 'text', //后台返回的数据类型
+                    // timeout: 15000, //超时时间
+                    beforeSend:function(XMLHttpRequest){
+                        $("#loading").html("<img src='../static/img/loading.gif'/>"); //在后台返回success之前显示loading图标
+                        // $(".loading").fadeOut();
+                    },
+                    success:function(data){ //data为后台返回的数据
+                        $("#loading").empty(); //ajax返回成功，清除loading图标
+                        if (data){
+                            alert("更新成功");
+                        } else {
+                            alert("更新失败");
+                        }
+                    }
+                });
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        // $(function() {
+        //     $('#addSelectOption').click(function(){
+        //         $("#openingDate").empty();
+        //             onLoadRead();
+        //     });
+        // });
+
+        $(function changeDistrict(){
+            // var ajaxTimeOut=
+            $.ajax({
+                type:"get",
+                url:"http://localhost:8080/selectDate",
+                dataType:"json",
+                async:true,
+                cache:false,//不缓存
+                timeout:5000,
+                success:function(data) {
+                    if(data) {
+                        //测试返回数据的正确的使用形式，删除即可
+                        for(var i=0;i<data.length;i++) {
+                            $("#openingDate").append("<option selected value='"+data[i]+"'>"+data[i]+"</option>");
+                        }
+                    }else{
+                        alert("data.success 失败")
+                    }
+                },error:function () {
+                    alert("数据传输失败！")
+                }
+                // ,complete:function (XMLHttpRequest,status) {
+                //     if(status=='timeout') {
+                //         //如果请求超时，则弹出提示,并取消请求
+                //         alert("请求超时");
+                //         ajaxTimeOut.abort();
+                //     }
+                // }
+            });
+        })
+    </script>
+</html>

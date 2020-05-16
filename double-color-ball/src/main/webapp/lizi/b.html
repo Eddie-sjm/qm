@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax加载loading图标</title>
+    <script src="../static/js/jquery/jquery.min.js"></script>
+</head>
+    <body>
+        <input id="flush" type="button" value="更新">
+        <div id="loading"></div>
+        <div id="res"></div>
+    </body>
+    <script>
+        $('#flush').click(function(){
+            $.ajax({
+                url: '/save', //发送后台的url
+                type: 'get',
+                // data: $('#test-form').serialize(), //序列化表单内容
+                // dataType: 'text', //后台返回的数据类型
+                timeout: 15000, //超时时间
+                beforeSend:function(XMLHttpRequest){
+                    $("#loading").html("<img src='../static/img/loading.gif'/>"); //在后台返回success之前显示loading图标
+                },
+                success:function(data){ //data为后台返回的数据
+                    $("#loading").empty(); //ajax返回成功，清除loading图标
+                    $('#res').html('ajax请求成功！');
+                }
+            });
+        });
+    </script>
+</html>

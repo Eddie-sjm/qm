@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上海前景网络科技有限公司</title>
+    <link rel="stylesheet" href="../static/css/default.css">
+    <script type="text/javascript">
+        var url = location.href;
+        // 提取url中的解析字符串
+        function UrlParamHash(url) {
+            var params = [],
+                h;
+            var hash = url.slice(url.indexOf("?") + 1).split('&');
+            console.log(hash);
+            for (var i = 0; i < hash.length; i++) {
+                h = hash[i].split("="); //
+                params[h[0]] = h[1];
+                console.log(h);
+            }
+            return params;
+        }
+        var params = UrlParamHash(url);
+        console.log(params);
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+<body>
+<!--导航条-->
+<div class="top-bar">
+    <div class="top-after">
+        <div class="logo">
+            <img src="../static/img/logo.png" alt="上海前景网络科技有限公司logo">
+        </div>
+        <div class="com-title">
+            上海前景网络科技有限公司
+        </div>
+    </div>
+    <div class="nav-butto" id="navButton"></div>
+    <div class="top-before" id="topBefore">
+        <ul>
+            <li class="nav-item li-active">
+                <a id="toindexHead">公司愿景</a>
+            </li>
+            <li class="nav-item">
+                <a id="toproductService">产品服务</a>
+            </li>
+            <li class="nav-item">
+                <a id="toadvantage">服务优势</a>
+            </li>
+            <li class="nav-item">
+                <a id="togreatestCase">精品案例</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--第一屏头图-->
+<section data-x id="indexHead" class="index-head">
+    <div class="head-img-wrapper">
+        <img src="../static/img/index_banner.png" alt="上海前景网络科技有限公司">
+        <img src="../static/img/m-banner.png" alt="上海前景网络科技有限公司" class="m-banner">
+    </div>
+</section>
+<!--产品服务-->
+<section data-x id="productService" class="product-service">
+    <div class="section-title">产品服务</div>
+    <div class="service-items">
+        <div class="service-item">
+            <div class="service-icon-wrapper">
+                <img src="../static/img/service_item1.png" alt="运维服务">
+            </div>
+            <div class="service-info">
+                <p>运维服务</p>
+                <p>门户网站数据开发</p>
+                <p>移动端设计开发</p>
+                <p>业务流程咨询</p>
+                <p>创意合作</p>
+            </div>
+            <div class="m-service-info">
+                <div class="m-service-first">
+                    <p>运维服务</p>
+                </div>
+                <div class="m-service-sec">
+                    <div class="service-left">
+                        <p>门户网站数据开发</p>
+                        <p>业务流程咨询</p>
+                    </div>
+                    <div class="service-right">
+                        <p>移动端设计开发</p>
+                        <p>创意合作</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-icon-wrapper">
+                <img src="../static/img/service_item2.png" alt="教育大数据">
+            </div>
+            <div class="service-info">
+                <p>教育大数据</p>
+                <p>一站式综合数据服务</p>
+                <p>App微信设计开发</p>
+                <p>教育数据采集</p>
+                <p>数据整理分析</p>
+            </div>
+            <div class="m-service-info">
+                <div class="m-service-first">
+                    <p>教育大数据</p>
+                </div>
+                <div class="m-service-sec">
+                    <div class="service-left">
+                        <p>一站式综合数据服务</p>
+                        <p>教育数据采集</p>
+                    </div>
+                    <div class="service-right">
+                        <p>App微信设计开发</p>
+                        <p>数据整理分析</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-icon-wrapper">
+                <img src="../static/img/service_item3.png" alt="教育行业解决方案">
+            </div>
+            <div class="service-info">
+                <p>教育行业解决方案</p>
+                <p>业务设计改造咨询</p>
+                <p>教育产品设计开发</p>
+                <p>运营推广咨询</p>
+                <p>项目开发外包</p>
+            </div>
+            <div class="m-service-info">
+                <div class="m-service-first">
+                    <p>教育行业解决方案</p>
+                </div>
+                <div class="m-service-sec">
+                    <div class="service-left">
+                        <p>业务设计改造咨询</p>
+                        <p>业务流程咨询</p>
+                    </div>
+                    <div class="service-right">
+                        <p>教育产品设计开发</p>
+                        <p>项目开发外包</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--服务优势-->
+<section data-x id="advantage" class="advantage">
+    <div class="section-title pad-title normal-title" >服务优势</div>
+    <div class="advantage-items">
+        <div class="advantage-item">
+            <div class="advantage-icon-wrapper">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-huojian"></use>
+                </svg>
+            </div>
+            <div class="advantage-info">
+                <div class="info-first">
+                    <p>一站式服务</p>
+                    <p>统一教育中心</p>
+                </div>
+                <div class="info-sec">
+                    <div class="left">
+                        <p>国家标准</p>
+                        <p>多端访问</p>
+                    </div>
+                    <div class="right">
+                        <p>开放统一</p>
+                        <p>应用整合</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advantage-item">
+            <div class="advantage-icon-wrapper">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shuju"></use>
+                </svg>
+            </div>
+            <div class="advantage-info">
+                <div class="info-first">
+                    <p>大数据决策</p>
+                    <p>专业级大数据存储能力</p>
+                </div>
+                <div class="info-sec">
+                    <div class="left">
+                        <p>大数据分析</p>
+                        <p>全场景覆盖</p>
+                    </div>
+                    <div class="right">
+                        <p>过程性分析</p>
+                        <p>个性化推荐</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="advantage-item">
+            <div class="advantage-icon-wrapper">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shengtaifuwu"></use>
+                </svg>
+            </div>
+            <div class="advantage-info">
+                <div class="info-first">
+                    <p>教育生态</p>
+                    <p>共享智慧教育生态圈</p>
+                </div>
+                <div class="info-sec">
+                    <div class="left">
+                        <p>开放平台体系</p>
+                        <p>资源共建共享</p>
+                    </div>
+                    <div class="right">
+                        <p>数据互联互通</p>
+                        <p>应用深度整合</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--精品案例-->
+<section data-x id="greatestCase" class="greatest-case">
+    <div class="section-title">精品案例</div>
+    <div class="case-items">
+        <div class="case-item">
+            <p>智慧教育平台</p>
+            <div class="case-info">
+                <p>基于校园磁场的工作、学习、生活所必须的真实场景，充分利用物联网、大数据、“互联网+教育”等信息化理念指导设计思路，让校园可以实现“少绑定、多业务、多服务”的智慧校园生态圈。</p>
+            </div>
+            <div class="m-window">
+                <div class="m-window-wrapper">
+                    <div class="m-window-content">
+                        <div class="m-case-info">
+                            <p>智慧教育平台</p>
+                            <p>
+                                基于校园磁场的工作、学习、生活所必须的真实场景，充分利用物联网、大数据、“互联网+教育”等信息化理念指导设计思路，让校园可以实现“少绑定、多业务、多服务”的智慧校园生态圈。</p>
+                        </div>
+                        <div class="m-info-close">
+                            <img src="../static/img/close.png" alt="前景弹窗关闭">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="case-item">
+            <p>自适应学习系统</p>
+            <div class="case-info">
+                <p>自适应学习是基于学习目标，利用大数据、人工智能等技术手段，根据每个学生的情况制定个性化学习路径，智能推荐学习内容及测试，根据测试结果不断反馈迭代学习过程，以实现每个学生最高效率达成学习目标。</p>
+            </div>
+            <div class="m-window">
+                <div class="m-window-wrapper">
+                    <div class="m-window-content">
+                        <div class="m-case-info">
+                            <p>自适应学习系统</p>
+                            <p>
+                                自适应学习是基于学习目标，利用大数据、人工智能等技术手段，根据每个学生的情况制定个性化学习路径，智能推荐学习内容及测试，根据测试结果不断反馈迭代学习过程，以实现每个学生最高效率达成学习目标。</p>
+
+                        </div>
+                        <div class="m-info-close">
+                            <img src="../static/img/close.png" alt="前景弹窗关闭">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="case-item">
+            <p>中小学生涯规划</p>
+            <div class="case-info">
+                <p>
+                    中小学生涯教育系统按照以生涯能力，生涯学分，生涯兴趣，量表测评为主的统计分析；以生涯活动，问卷调查，在线学习课程，职业、专业库等为主的功能需求，旨在增强学生对自我和人生发展的认识与理解，促进学生在成长过程中学会选择、主动适应变化和开展生涯规划，实现家校共育。 </p>
+            </div>
+            <div class="m-window">
+                <div class="m-window-wrapper">
+                    <div class="m-window-content">
+                        <div class="m-case-info">
+                            <p>中小学生涯规划</p>
+                            <p>
+                                中小学生涯教育系统按照以生涯能力，生涯学分，生涯兴趣，量表测评为主的统计分析；以生涯活动，问卷调查，在线学习课程，职业、专业库等为主的功能需求，旨在增强学生对自我和人生发展的认识与理解，促进学生在成长过程中学会选择、主动适应变化和开展生涯规划，实现家校共育。 </p>
+                        </div>
+                        <div class="m-info-close">
+                            <img src="../static/img/close.png" alt="前景弹窗关闭">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info">
+            <p></p>
+        </div>
+    </div>
+</section>
+<!--底部footer-->
+<footer class="footer">
+    <p></p>
+</footer>
+<!--js链接需要顺序引用-->
+<script src="../static/js/jquery/jquery-2.1.1.min.js"></script>
+<script src="../static/js/font_1236044_06klkl588mei.js"></script>
+<script src="../static/js/main.js"></script>
+</body>
+</html>
+

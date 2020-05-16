@@ -1,0 +1,580 @@
+
+@charset "utf-8";
+/* css reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+	margin:0;padding:0
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{
+	display:block
+}
+img {
+	border: 0 none;
+	vertical-align: middle;
+}
+fieldset {
+	border: 0;
+}
+li {
+	list-style: none;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0
+}
+input{
+	border-radius:0
+}
+/* 文字超出部分用省略号代替（仅单行，多行请用js控制;table中加入table-layout:fixed之后，td内文字才起作用） */
+.wordEllipsis {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis; /* 兼容老版opera浏览器 */
+}
+html {
+	font-size: 125%;
+	font-family: "Microsoft YaHei","Hiragino Sans GB W3",Arial,Verdana, helvetica, sans-serif;
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+}
+
+/* firefox清除链接虚线框 */
+a {
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+}
+/* 全局清除链接虚线框 */
+:focuse {
+	outline: 0;
+}
+/* IE清除链接虚线框 */
+:visited {
+	star: expression(this.onFocus=this.blur());
+}
+/* clearfix */
+.clearfix:before, .clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.fr1 {
+	float: left;
+}
+.mainContainer {
+	width: 58rem;
+	margin: 0 auto;
+}
+.wrapper {
+	width: 1200px;
+	margin:  0 auto;
+}
+/* font */
+
+/* header */
+#header {
+	width: 100%;
+	height: 60px;
+	background: rgba(255, 255, 255, 1);
+	box-shadow: 0 1px 3px rgba(110, 114, 238, 0.1);
+	-moz-box-shadow: 0 1px 3px rgba(110, 114, 238, 0.1);
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+}
+.logo {
+	display: block;
+	width: 108px;
+	height: 32px;
+	margin-top: 14px;
+}
+#nav {
+	padding: 16px 0;
+}
+#nav ul li a {
+	display: block;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 15px;
+	margin: 0 5px;
+	font-size: 12px;
+	letter-spacing: 0.3em;
+	text-indent: 0.3em;
+	color: rgba(148, 145, 178, 1);
+}
+.navListCurrent, #nav ul li a:hover {
+	border-radius: 14px;
+	background: rgba(110, 114, 238, 1);
+	color: rgba(255, 255, 255, 1) !important;
+}
+#nav1 {
+	padding: 16px 0;
+}
+#nav1 ul li a {
+	display: block;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 15px;
+	margin: 0 5px;
+	font-size: 12px;
+	letter-spacing: 0.3em;
+	text-indent: 0.3em;
+	color: rgba(148, 145, 178, 1);
+}
+.navListCurrent, #nav1 ul li a:hover {
+	border-radius: 14px;
+	background: rgba(110, 114, 238, 1);
+	color: rgba(255, 255, 255, 1) !important;
+}
+
+/* banner */
+#banner {
+	margin-top: 60px;
+	position: relative;
+}
+#banner h1 {
+	font-size: 36px;
+	color: rgba(63, 53, 97, 1);
+	text-align: center;
+	font-weight: lighter;
+	letter-spacing: 0.1em;
+	text-indent: 0.1em;
+	padding-top: 100px;
+}
+#banner p {
+	font-size: 14px;
+	line-height: 2.2;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	text-align: justify;
+	color: rgba(148, 145, 178, 1);
+	width: 720px;
+	padding: 30px 0 50px 0;
+	margin: 0 auto;
+}
+.bannerImg {
+	margin-top: 80px;
+	width: 100%;
+	text-align: center;
+}
+.buttonConsult {
+	display: block;
+	width: 160px;
+	height: 36px;
+	background: rgba(110, 114, 238, 1);
+	box-shadow: 0 6px 20px rgba(110, 114, 238, 0.4);
+	-moz-box-shadow: 0 6px 20px rgba(110, 114, 238, 0.4);
+	font-size: 14px;
+	line-height: 36px;
+	text-align: center;
+	color: rgb(255, 255, 255, 1);
+	margin: 0 auto;
+}
+.bannerBgL {
+	position: absolute;
+	left: -7px;
+	top: 200px;
+	display: block;
+	width: 217px;
+	height: 583px;
+}
+.bannerBgR {
+	position: absolute;
+	right: -33px;
+	top: 20px;
+	display: block;
+	width: 291px;
+	height: 712px;
+}
+
+/* customer */
+.customer {
+	width: 100%;
+	margin-top: 100px;
+	padding: 50px 0;
+	background: rgba(250, 250, 250, 1);
+}
+.customer h2 {
+	font-size: 24px;
+	font-weight: lighter;
+	color: rgba(191, 189, 209, 1);
+	text-align: center;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+}
+.customer ul li {
+	padding-top: 30px;
+}
+
+/* cando */
+.canDo {
+	margin: 0 auto;
+	padding: 100px 0 80px 0;
+	width: 860px;
+	font-size: 16px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	line-height: 2.2;
+	color: rgba(148, 145, 178, 1);
+	text-align: center;
+}
+.canDoCard {
+	width: 480px;
+	height: 340px;
+	background: rgba(255, 255, 255, 1);
+	border-radius: 12px;
+	box-shadow: 0 6px 24px rgba(73, 75, 134, 0.1);
+	-moz-box-shadow: 0 6px 24px rgba(73, 75, 134, 0.1);
+	padding: 30px;
+	margin: 0 30px;
+}
+.canDoCardImg {
+	display: block;
+	width: 70px;
+	height: 74px;
+}
+.canDoCardTitle {
+	padding: 32px 0 0 30px;
+	font-size: 18px;
+	color: rgba(110, 114, 238, 1);
+}
+.canDoCardIcon {
+	display: block;
+	width: 18px;
+	height: 18px;
+	padding-top: 40px;
+}
+.canDoCardList {
+	padding: 40px 0 0 20px;
+	font-size: 14px;
+	line-height: 18px;
+	color: rgba(148, 145, 178, 1);
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+}
+
+/* all platform */
+.halfWrapperCard {
+	width: 50%;
+	margin-top: 200px;
+	text-align: center;
+	position: relative;
+}
+.allPlatformPic {
+	display: block;
+	width: 448px;
+	height: 318px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+.halfWrapperCard h2 {
+	font-size: 24px;
+	font-weight: lighter;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(110, 114, 238, 1);
+}
+.halfWrapperCard p {
+	width: 500px;
+	font-size: 14px;
+	line-height: 2.2;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+	padding: 20px 0 50px 0;
+	text-align: justify;
+	margin: 0 auto;
+}
+.halfWrapperCard ul {
+	width: 440px;
+	margin: 0 auto;
+}
+.allPlatformList {
+	width: 70px;
+	padding: 0 20px;
+}
+.icon_computer, .icon_ios, .icon_android, .icon_wechat_app {
+	display: block;
+	height: 60px;
+	margin: 0 auto;
+}
+.icon_computer {
+	width: 66px;
+}
+.icon_ios, .icon_android, .icon_wechat_app {
+	width: 40px;
+}
+.allPlatformList span {
+	display: block;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 14px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+}
+
+/* development flow */
+.developFlow {
+	display: block;
+	width: 337px;
+	height: 261px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+.developFlowList {
+	width: 70px;
+	height: 70px;
+	margin: 50px 5px 0 5px;
+	text-align: center;
+	position: relative;
+}
+.developFlowList span {
+	display: block;
+	padding-top: 5px;
+	font-size: 14px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+}
+.developFlowListIcon {
+	display: block;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+.icon_flow_arrow {
+	display: block;
+	width: 19px;
+	height: 8px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* service assurance */
+.serviceCard {
+	border-radius: 12px;
+	box-shadow: 0 6px 24px rgba(73, 75, 134, 0.1);
+	-moz-box-shadow: 0 6px 24px rgba(73, 75, 134, 0.1);
+	background: rgba(255, 255, 255, 1);
+	padding: 50px 0;
+	margin-top: 150px;
+}
+.serviceCard h2 {
+	font-size: 24px;
+	font-weight: lighter;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(110, 114, 238, 1);
+	text-align: center;
+}
+.serviceCardArticle {
+	width: 600px;
+	font-size: 14px;
+	line-height: 2.2;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+	padding: 20px 0 50px 0;
+	text-align: center;
+	margin: 0 auto;
+}
+.serviceCardList {
+	width: 1158px;
+	margin: 0 auto;
+}
+.serviceCardListBox {
+	width: 180px;
+	height: 140px;
+	text-align: center;
+	margin: 0 25px;
+}
+.serviceCardList h3 {
+	font-size: 18px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(63, 53, 97, 1);
+	line-height: 2.4;
+}
+.serviceCardList p {
+	font-size: 12px;
+	line-height: 1.8;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+}
+.serviceCardLine {
+	display: block;
+	width: 2px;
+	height: 100px;
+	margin-top: 20px;
+}
+
+/* footer */
+#footer {
+	width: 100%;
+	margin-top: 150px;
+	padding-top: 30px;
+	background: rgba(250, 250, 250, 1);
+	border-top: 1px solid rgba(110, 114, 238, 0.1);
+}
+.footerLogo {
+	display: block;
+	width: 161px;
+	height: 48px;
+}
+.logoInfo {
+	width: 168px;
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	line-height: 1.8;
+	color: rgba(148, 145, 178, 1);
+	padding-top: 12px;
+}
+.footerQuickLink {
+	margin-left: 60px;
+}
+.footerQuickLink h4 {
+	/*display: block;*/
+	padding: 10px 0;
+	font-size: 14px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(63, 53, 97, 1);
+}
+.buttonOnlineConsult {
+	display: block;
+	height: 44px;
+	padding: 0 20px;
+	margin: 34px 30px 30px 0;
+	background: rgba(110, 114, 238, 1);
+	box-shadow: 0 6px 20px rgba(110, 114, 238, 0.4);
+	-moz-box-shadow: 0 6px 20px rgba(110, 114, 238, 0.4);
+	text-align: center;
+	color: rgb(255, 255, 255, 1);
+}
+.buttonOnlineConsult span {
+	display: block;
+	font-size: 18px;
+	line-height: 44px;
+	font-weight: lighter;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(255, 255, 255, 1);
+}
+.iconOnlineConsult {
+	display: block;
+	width: 25px;
+	height: 22px;
+	margin: 11px 5px 0 0;
+}
+.footerQR {
+	width: 112px;
+	height: 112px;
+}
+.footerQuickLink a {
+	display: block;
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	line-height: 2.4;
+	color: rgba(148, 145, 178, 1);
+}
+.footerQuickLink a:hover {
+	color: rgba(110, 114, 238, 1);
+}
+.footerBottomInfo {
+	width: 1120px;
+	padding: 30px 0;
+	margin-top: 30px;
+	border-top: 1px solid rgba(110, 114, 238, 0.1);
+	text-align: center;
+}
+.footerBottomInfo p {
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+}
+
+/* company */
+.halfWrapper {
+	width: 50%;
+	margin-top: 200px;
+	position: relative;
+}
+.companyPic {
+	display: block;
+	width: 366px;
+	height: 255px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+.businessBox {
+	height: 289px;
+}
+.businessList {
+	width: 300px;
+	height: 200px;
+	text-align: center;
+	margin-top: 80px;
+}
+.businessList img {
+	width: 60px;
+	height: 60px;
+	margin-bottom: 16px;
+}
+.businessList h3 {
+	font-size: 16px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(63, 53, 97, 1);
+	line-height: 2;
+}
+.businessList p {
+	width: 200px;
+	margin: 0 auto;
+	font-size: 12px;
+	letter-spacing: 0.2em;
+	text-indent: 0.2em;
+	color: rgba(148, 145, 178, 1);
+	line-height: 2;
+}
+.businessPic {
+	display: block;
+	width: 382px;
+	height: 289px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+.companyArticle {
+	font-size: 14px;
+	letter-spacing: 0.2em;
+	text-indent: 2.2em;
+	line-height: 2.4;
+	color: rgba(148, 145, 178, 1);
+	margin: 0 auto;
+	padding-bottom: 20px;
+}

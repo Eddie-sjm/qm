@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="274px" height="712px" viewBox="0 0 274 712" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>banner_bg_r</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="65.7224395%" y1="47.1549585%" x2="12.432025%" y2="74.6170353%" id="linearGradient-1">
+            <stop stop-color="#B240D3" offset="0%"></stop>
+            <stop stop-color="#7147FF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="66.4045502%" y1="48.5682788%" x2="11.7499143%" y2="73.2037149%" id="linearGradient-2">
+            <stop stop-color="#B240D3" offset="0%"></stop>
+            <stop stop-color="#7147FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-1326.000000, -66.000000)">
+            <g id="banner_bg_r" transform="translate(1326.000000, 66.000000)">
+                <path d="M274,514.756206 L51.6339931,300.01985 C32.4276365,281.472487 31.8934166,250.86705 50.4407796,231.660693 L274,0.158343541 L274,514.756206 Z" id="Combined-Shape" fill="url(#linearGradient-1)" opacity="0.400000006"></path>
+                <path d="M274,711.873047 L48.9317809,548.351414 C27.3310452,532.657561 22.5425708,502.424324 38.2364239,480.823588 L274,156.322864 L274,711.873047 Z" id="Combined-Shape" fill="url(#linearGradient-2)" opacity="0.100000001"></path>
+                <path d="M274,624.188853 L15.9961562,391.881149 C-3.84579407,374.015376 -5.44780287,343.447228 12.4179694,323.605277 L274,33.0890004 L274,624.188853 Z" id="Combined-Shape" fill="url(#linearGradient-2)" opacity="0.800000012"></path>
+            </g>
+        </g>
+    </g>
+</svg>

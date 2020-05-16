@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+		<title>双色球</title>
+		<link rel="shortcut icon" href="static/logo.ico" />
+		<link rel="stylesheet" href="static/css/main.css" type="text/css" />
+		<!--[if lt IE 9]>
+		<script type=“text/javascript” src="static/js/html5shiv.min.js"></script>
+		<![endif]-->
+		<script src="static/js/echarts/echarts.min.js"></script>
+		<script src="static/js/jquery/jquery.min.js"></script>
+		<script src="static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+		<script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!--header start-->
+		<header id="header">
+			<div class="wrapper clearfix">
+				<div class="fl">
+					<img src="static/img/logo.png" class="logo"/>
+				</div>
+				<nav class="fr" id="nav">
+					<ul class="clearfix">
+						<li class="fl"><a href="index.html">首页</a></li>
+						<li class="fl"><a class="navListCurrent">历次开奖</a></li>
+						<li class="fl"><a href="analysis.html">数据分析</a></li>
+						<li class="fl"><a href="furture.html">预测下一次</a></li>
+						<li class="fl"><a href="other.html">其他功能</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!--header end-->
+
+		<div style="margin-top:75px" class="wrapper clearfix">
+			<div class="wrapper clearfix">
+				<nav class="fr1" id="nav1">
+					<ul class="clearfix">
+						<li class="fl"><a class="navListCurrent">个体数据</a></li>
+						&nbsp;&nbsp;
+						<li class="fl"><a href="specific.html">具体数据</a></li>
+					</ul>
+				</nav>
+			</div>
+
+			<div  class="fl">
+				开奖日期：
+				<select id="selectOpeningDate" name="selectOpeningDate" class="form-control" onchange="changeDistrict()">
+					<option selected value="">请选择</option>
+				</select>
+				<button  id="selectByOne" type="submit" class="form-control">查看</button>
+			</div>
+		</div>
+
+		<div id="main" style="width: 1200px;height: 500px;">
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var ById = document.getElementById("selectOpeningDate");
+		$("#ca").click(function () {
+			alert(ById.options[ById.selectedIndex].text);
+		})
+	</script>
+	<script type="text/javascript">
+		$(function changeDistrict(){
+			$.ajax({
+				type:"get",
+				url:"http://localhost:8080/selectDate",
+				dataType:"json",
+				async:true,
+				cache:false,//不缓存
+				timeout:5000,
+				success:function(data) {
+					if(data) {
+						for(var i=0;i<data.length;i++) {
+							$("#selectOpeningDate").append("<option selected value='"+data[i]+"'>"+data[i]+"</option>");
+						}
+					}else{
+						alert("无数据")
+					}
+				},error:function () {
+					alert("数据传输失败！")
+				}
+			});
+		})
+	</script>
+	<script type="text/javascript">
+		// var data = document.getElementById("openingDate");
+		var ById = document.getElementById("selectOpeningDate");
+		//获取选中的项
+		$("#selectByOne").click(function(){
+			var openingDate = ById.options[ById.selectedIndex].text;
+			var myCharts = echarts.init(document.getElementById("main"));
+			var option = {
+				xAxis: {
+					type: 'category',
+					data: ['红球一', '红球二', '红球三', '红球四', '红球五', '红球六', '蓝球']
+				},
+				yAxis: {
+					type: 'value',
+					min: 0,
+					max: 34,
+					splitNumber : 35,
+				},
+				series: [{
+					data: [],
+					type: 'line'
+				}],
+				grid:{
+					top: 80,
+					x:400,
+					x2:100,
+					y2:80,
+				}
+			};
+			$.ajax({
+				type: "post",
+				url: "http://localhost:8080/selectOnePool",
+				data: openingDate,
+				processData: false,
+				contentType: false,
+				// contentType:'application/json',
+				async:true,
+				success:function(data) {
+					option.series[0].data = data.seriesData;
+					//3,把option设置给echarts对象  显示柱状图
+					myCharts.setOption(option);
+				}
+			});
+		})
+	</script>
+	<script>
+		// $(function() {
+		// 	var myCharts = echarts.init(document.getElementById("main"));
+		// 	var option = {
+		// 		xAxis: {
+		// 			type: 'category',
+		// 			data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+		// 		},
+		// 		yAxis: {
+		// 			type: 'value'
+		// 		},
+		// 		series: [{
+		// 			data: [820, 932, 901, 934, 1290, 1330, 1320],
+		// 			type: 'line'
+		// 		}]
+		// 	};
+		// 	myCharts.setOption(option)
+
+		// $(function(){
+		//     //1,初始化echarts
+		//     var  myEcharts = echarts.init(document.getElementById("bar"));
+		//     //2,设置图形显示的数据选项
+		//     var  option = {
+		//         xAxis: {
+		//             type: 'category',
+		//             data: []
+		//         },
+		//         yAxis: {
+		//             type: 'value'
+		//         },
+		//         series: [{
+		//             data: [],
+		//             type: 'bar'
+		//         }]
+		//     };
+		//
+		//     $.get("/sys/echarts/bar",function(r){
+		//         //把真数据赋值给option
+		//         option.xAxis.data = r.xAxis;
+		//         option.series[0].data = r.seriesData;
+		//         //3,把option设置给echarts对象  显示柱状图
+		//         myEcharts.setOption(option);
+		//     });
+		// });
+		// });
+	</script>
+</html>
